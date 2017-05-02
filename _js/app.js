@@ -29,7 +29,7 @@ $(function(){
     ],
 
     init: function(){
-      
+
     }
   };
 
@@ -46,7 +46,6 @@ $(function(){
     init: function(){
       model.init();
       view.init();
-      view.clicker();
     }
   };
 
@@ -72,7 +71,7 @@ $(function(){
     },
 
     render: function(index){
-      view.li();
+
     },
 
     li : function(){
@@ -92,7 +91,9 @@ $(function(){
     },
 
     init: function(){
+      view.li();
       view.render();
+      view.clicker();
     }
   };
 
