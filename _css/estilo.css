@@ -1,0 +1,32 @@
+body {
+  background-color: lightgrey;
+}
+
+div {
+  margin: 25%;
+}
+
+figure {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+img {
+  height: 200px;
+  width: 300px;
+}
+
+li {
+  list-style: none;
+  padding: 3px;
+  width: 80px;
+  display: inline-block;
+}
+
+button {
+  text-align: center;
+}
+
+.corpo {
+  border: 1px solid grey;
+}
