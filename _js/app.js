@@ -71,7 +71,24 @@ $(function(){
     },
 
     render: function(index){
+      view.alterar();
+    },
 
+    alterar: function(){
+      $("#Alterar").click(function(){
+          var gatoN = $("#NovoGato").val();
+          var urlN = $("#UrlNova").val();
+          $("#CurentCat").attr("src", urlN);
+          $("#NomeDoGato").text(gatoN);
+          count = 0;
+          $("#contador").text(count);
+      })
+    },
+
+    admin: function(){
+      $("#admin").click(function() {
+        $("#form").show();
+      })
     },
 
     li : function(){
@@ -94,6 +111,8 @@ $(function(){
       view.li();
       view.render();
       view.clicker();
+      view.admin();
+      $("#form").hide();
     }
   };
 

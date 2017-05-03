@@ -27,6 +27,10 @@ button {
   text-align: center;
 }
 
+form {
+  margin-left: 5%;
+}
+
 .corpo {
   border: 1px solid grey;
 }
