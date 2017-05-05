@@ -35,6 +35,16 @@ $(function(){
 
   var octopus = {
 
+    setCat : function(nome,url){
+      var n;
+      n = {
+        "nome" : nome,
+        "url" : url,
+        "contador" :0
+              };
+      model.cats.push(n);
+    },
+
     getCatByID : function(id){
       return model.cats[id];
     },
@@ -51,7 +61,7 @@ $(function(){
 
   var view = {
 
-    "count" : 0,
+    "liberado" : 0,
 
     clicker : function(){
       $("#CurentCat").click(function(e) {
@@ -71,27 +81,50 @@ $(function(){
     },
 
     render: function(index){
-      view.alterar();
+    },
+
+    novoGato: function(){
+      $("#AddGato").click(function(){
+        if(view.liberado){
+          var gatoNN = $("#NovoGato").val();
+          var urlNN = $("#UrlNova").val();
+          octopus.setCat(gatoNN,urlNN);
+          $("#CurentCat").attr("src", urlNN);
+          $("#NomeDoGato").text(gatoNN);
+          count = 0;
+          $("#contador").text(count);
+        }
+        view.li();
+      })
     },
 
     alterar: function(){
       $("#Alterar").click(function(){
+        if(view.liberado){
           var gatoN = $("#NovoGato").val();
           var urlN = $("#UrlNova").val();
           $("#CurentCat").attr("src", urlN);
           $("#NomeDoGato").text(gatoN);
           count = 0;
           $("#contador").text(count);
+        }
       })
     },
 
     admin: function(){
       $("#admin").click(function() {
-        $("#form").show();
+        if(!view.liberado) {
+          $("#form").show();
+          view.liberado = 1;
+        } else  {
+          $("#form").hide();
+          view.liberado = 0;
+        }
       })
     },
 
     li : function(){
+      $("#list").empty();
       var data = "%data%";
       var cats = octopus.getCats();
       var lista1 = '<li><button id="%data%" type="button">';
@@ -112,6 +145,8 @@ $(function(){
       view.render();
       view.clicker();
       view.admin();
+      view.novoGato();
+      view.alterar();
       $("#form").hide();
     }
   };
